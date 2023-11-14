@@ -12,17 +12,19 @@ def numberGuessing():
     print(f'You have {trial} trials')
 
     count = 0
-    while count <= trial:
+    while count < trial:
         guess = int(input('Guess a number: '))
         count += 1
-        if guess == system_number:
+        if guess < smallest or guess > highest:
+            print(f'choose a number between {smallest} and {highest}')
+        elif guess == system_number:
             print(f'Congratulations!...you guessed right in {count} trials')
             break
         elif guess < system_number:
             print('Try again!...your guess is too small')
         elif guess > system_number:
             print('Try again!...your guess is too high')
-    if count > trial:
+    if count >= trial:
         print(f'The number is {system_number}!')
         print(f'Better Luck Next time')
 
